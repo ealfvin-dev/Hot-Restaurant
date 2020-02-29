@@ -29,17 +29,17 @@
     <div class="row">
         <div>    
             <div id=form>
-            <div >Name</div><input class=resName type="text">
-            <div >Phone Number</div><input class=resPhone type="text">
-            <div >Email</div><input class=resEmail type="text">
-            <div >ID</div><input class=resID type="text">
+            <div >Name</div><input class="resName" type="text">
+            <div >Phone Number</div><input class="resPhone" type="text">
+            <div >Email</div><input class="resEmail" type="text">
+            <div >ID</div><input class="resID" type="text">
         </div>
     </div>
     
     
     </div>
     <br>
-    <button type="button" class=btn id="submitButton">Submit</button>
+    <button type="button" class="btn" id="submitButton">Submit</button>
 </div>
 
 <script>
@@ -47,17 +47,17 @@ $("#submitButton").on("click", function(event){
     event.preventDefault();
 
     let newReservation = {
-        name: $(".resname").text,
-        phone: $(".resphone").text,
-        email: $(".resemail").text,
-        id: $(".resid").text
+        name: $(".resName").val().trim(),
+        phone: $(".resPhone").val().trim(),
+        email: $(".resEmail").val().trim(),
+        id: $(".resID").val().trim()
     }
-    $.post("api/tables", newReservation).then(function(data) {
-        console.log(data);
+    $.post("/api/tables", newReservation).then(function(data) {
+        console.log("form.html",data);
 
     });
 
-    $.post("api/waitList", newReservation).then(function(data) {
+    $.post("/api/waitList", newReservation).then(function(data) {
         console.log(data);
     });
 })
