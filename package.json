@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/ealfvin-dev/Hot-Restaurant#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "jsdom": "^16.2.0"
   }
 }
