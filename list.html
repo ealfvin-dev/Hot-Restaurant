@@ -77,4 +77,47 @@
     </div>
 </body>
 
+<script>
+
+function renderer() {
+    $.get("/api/tables", function(data) {
+        const tables = data;
+        console.log(tables);
+        $(".tab").empty();
+
+        for(let i = 0; i < tables.length; i++) {
+            const innerText = `<br>
+                <div class="res">Table ${i + 1} ID: ${tables[i].id}</div>`
+
+            newDiv = $("<div>");
+            newDiv.attr("class", "row")
+
+            newDiv.text(innerText);
+
+            $(".tab").append(newDiv);
+        }
+    });
+
+    $.get("/api/waitList", function(data) {
+        const waitList = data;
+        $(".wait").empty();
+
+        for(let i = 0; i < waitList.length; i++) {
+            const innerText = `<br>
+                <div class="res">Table ${i + 1} ID: ${tables[i].id}</div>`
+
+            newDiv = $("<div>");
+            newDiv.attr("class", "row")
+
+            newDiv.text(innerText);
+
+            $(".wait").append(newDiv);
+        }   
+    });
+}
+
+renderer();
+
+</script>
+
 </html>
